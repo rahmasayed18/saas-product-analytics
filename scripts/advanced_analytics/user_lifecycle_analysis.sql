@@ -1,5 +1,5 @@
 -- =======================================
--- 03_user_lifecycle_analysis.sql
+-- 01_user_lifecycle_analysis.sql
 -- Analyze signup trends, retention, and customer lifetime
 -- =======================================
 
