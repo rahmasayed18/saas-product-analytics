@@ -1,0 +1,14 @@
+Dataset: SaaS Product Dashboard – MAU, Feature Usage, MRR  
+Author: Philbert Chan  
+Source: https://www.kaggle.com/datasets/philbertchan/saas-product-dashboard-mau-feature-usage-mrr  
+License: Creative Commons Zero v1.0 Universal (CC0 1.0 Public Domain Dedication)  
+License URL: https://creativecommons.org/publicdomain/zero/1.0/
+
+License Summary:
+You are free to copy, modify, distribute, and use the dataset, including for commercial purposes, without permission.
+
+Included Files:
+- All CSV files inside the /data/ folder originate from this dataset.
+
+Credit:
+Please attribute dataset source and author when sharing or using this project publicly.
