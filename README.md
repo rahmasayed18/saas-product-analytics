@@ -35,6 +35,17 @@ This project analyzes user behavior, feature usage, and subscription patterns fr
 ```
 ---
 
+## 📊 Reports & Views
+
+- `docs/01_vw_plan_summary.sql`: Plan-level metrics (ARPU, churn).
+- `docs/02_vw_country_revenue_churn.sql`: Revenue and churn by country.
+- `docs/03_vw_event_trend_monthly.sql`: Event volumes and user counts monthly.
+- `docs/04_vw_plan_distribution.sql`: User & revenue share by plan.
+- `docs/05_customer_summary_report.sql`: User-level segmentation & spend.
+- `docs/06_plan_report_saas.sql`: Plan performance, ARPU, engagement.
+
+---
+
 ## 🧠 Key Insights
 
 - Most users are on the Free plan, but Pro users show longer retention
