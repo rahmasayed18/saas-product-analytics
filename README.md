@@ -1,8 +1,9 @@
 # SaaS Product Analytics Project
 
-This project analyzes user behavior, feature usage, and subscription patterns from a SaaS product dataset. It uses SQL to clean, transform, and extract actionable business insights.
+📊 Project Overview
+This project analyzes a SaaS product dataset to uncover user behavior, revenue patterns, and plan profitability. The goal was to develop a comprehensive understanding of how users interact with the platform over time and how that translates into business outcomes, such as churn, lifetime value, and monthly recurring revenue.
 
----
+The dataset contains user subscription events, countries, signup dates, and product activity logs.
 
 ## 📌 Objectives
 
@@ -10,6 +11,25 @@ This project analyzes user behavior, feature usage, and subscription patterns fr
 - Track feature usage and engagement by user segment
 - Identify churn patterns and customer lifetime
 - Measure key SaaS metrics: MRR, MAU, churn rate, retention
+
+---
+## 📐 SaaS Metrics Glossary
+- **MRR (Monthly Recurring Revenue)**: Predictable subscription income per month.
+- **ARPU (Average Revenue Per User)**: Revenue per active subscriber.
+- **Churn Rate**: % of users who cancel subscriptions.
+
+---
+
+🎯 Business Questions Answered
+What is the monthly trend in revenue and active users?
+
+Which plans contribute most to revenue and retention?
+
+What is the distribution of users across countries and plans?
+
+Which users can be considered high-value (VIP) or low-engagement?
+
+What is the churn rate and lifetime value of users by plan?
 
 ---
 
@@ -44,14 +64,27 @@ This project analyzes user behavior, feature usage, and subscription patterns fr
 - `docs/05_customer_summary_report.sql`: User-level segmentation & spend.
 - `docs/06_plan_report_saas.sql`: Plan performance, ARPU, engagement.
 
+
+---
+🧠 What I Did
+Cleaned and transformed raw event logs and subscription records into structured tables (silver_events, dim_subscriptions, etc.)
+
+Built multiple SQL views to analyze revenue trends, plan performance, and retention.
+
+Normalized date formats and created a fiscal calendar logic.
+
+Designed layered reports, including plan_report_saas, plan_summary_report, and user_value_segmentation.
+
+
 ---
 
-## 🧠 Key Insights
+💡 Key Insights
 
-- Most users are on the Free plan, but Pro users show longer retention
-- Country X has the highest churn rate; Country Y leads in lifetime value
-- MAU peaks around product update releases
-- Feature Z correlates strongly with reduced churn
+✔️ Pro Plans = 50.3% of revenue, only 15% of users.
+✔️ Canada = high revenue & high churn → growth opportunity?
+✔️ Free Plan = most events → strong top-of-funnel.
+✔️ Top 10% users = 16% of events → power users drive product usage.
+
 
 ---
 
