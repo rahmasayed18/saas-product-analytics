@@ -38,37 +38,41 @@ WITH user_count_cte AS (
     SELECT
         user_id,
         COUNT(*) AS total_events
-    FROM saas_product.dim_events
+    FROM
+        saas_product.dim_events
     GROUP BY user_id
 ),
-
 user_rank AS (
     SELECT
         user_id,
         total_events,
-        NTILE(10) OVER (ORDER BY total_events DESC) AS decile
-    FROM user_count_cte
+        NTILE(10) OVER (ORDER BY total_events) AS decile
+    FROM
+        user_count_cte
 ),
-
 top_users AS (
     SELECT
         user_id, 
         total_events
-    FROM user_rank
-    WHERE decile = 1
+    FROM
+        user_rank
+    WHERE decile = 10
 ),
-
-events_total AS (
+events_summary AS (
     SELECT
-        (SELECT SUM(total_events) FROM user_count_cte) AS total_events,
-        (SELECT SUM(total_events) FROM top_users) AS top_10_perc_users
+        (SELECT SUM(total_events) FROM user_count_cte) AS total_events_all_users,
+        (SELECT COUNT(*) FROM user_count_cte) AS total_user_count,
+        (SELECT SUM(total_events) FROM top_users) AS total_events_top_10pct_users,
+        (SELECT COUNT(*) FROM top_users) AS top_10pct_user_count
 )
-
 SELECT
-    total_events,
-    top_10_perc_users,
-    CONCAT(ROUND((top_10_perc_users / total_events) * 100 , 2), ' %') AS top_10_perc_events
-FROM events_total;
+    total_events_all_users,
+    total_user_count,
+    total_events_top_10pct_users,
+    top_10pct_user_count,
+    CONCAT(ROUND((total_events_top_10pct_users * 1.0 / total_events_all_users) * 100, 2), ' %') AS top_10pct_share_of_total_events
+FROM
+    events_summary;
 
 
 -- 🔹 Event share per plan
