@@ -63,6 +63,7 @@ What is the churn rate and lifetime value of users by plan?
 - `docs/04_vw_plan_distribution.sql`: User & revenue share by plan.
 - `docs/05_customer_summary_report.sql`: User-level segmentation & spend.
 - `docs/06_plan_report_saas.sql`: Plan performance, ARPU, engagement.
+- `docs/` :  [Executive Summary & Recommendations](docs/executive_summary.md)
 
 
 ---
