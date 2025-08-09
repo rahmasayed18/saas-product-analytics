@@ -91,3 +91,14 @@ revenue_by_plan AS (
 )
 
 SELECT * FROM revenue_by_plan;
+
+-- 🔹 revenue trend over time
+
+CREATE OR REPLACE VIEW saas_product.revenue_trend AS
+SELECT
+    DATE_FORMAT(signup_date, '%Y-%m') AS month,
+    SUM(revenue) AS total_revenue,
+    COUNT(DISTINCT user_id) AS active_customers
+FROM saas_product.silver_subscriptions
+GROUP BY month
+ORDER BY month;
