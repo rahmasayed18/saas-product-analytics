@@ -66,3 +66,38 @@ SELECT
 FROM saas_product.dim_subscriptions
 WHERE signup_date IS NOT NULL 
   OR churn_date IS NOT NULL;
+
+-- 🔹 cohort analysis (signup month vs active month)
+
+CREATE OR REPLACE VIEW saas_product.cohort_retention AS
+WITH user_cohort AS (
+    SELECT 
+        user_id,
+        DATE_FORMAT(signup_date, '%Y-%m') AS cohort_month
+    FROM saas_product.silver_subscriptions
+),
+activity AS (
+    SELECT 
+        user_id,
+        DATE_FORMAT(event_date, '%Y-%m') AS activity_month
+    FROM saas_product.silver_events
+    GROUP BY user_id, activity_month
+),
+cohort_activity AS (
+    SELECT 
+        uc.cohort_month,
+        a.activity_month,
+        TIMESTAMPDIFF(MONTH, STR_TO_DATE(CONCAT(uc.cohort_month, '-01'), '%Y-%m-%d'), 
+                              STR_TO_DATE(CONCAT(a.activity_month, '-01'), '%Y-%m-%d')) AS month_number,
+        COUNT(DISTINCT a.user_id) AS active_users
+    FROM user_cohort uc
+    JOIN activity a USING (user_id)
+    GROUP BY uc.cohort_month, a.activity_month, month_number
+)
+SELECT
+    cohort_month,
+    month_number,
+    active_users
+FROM cohort_activity
+ORDER BY cohort_month, month_number;
+
