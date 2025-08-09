@@ -120,3 +120,13 @@ SELECT
     CONCAT(ROUND((paid_users / SUM(total_users) OVER()) * 100, 2), ' %') AS conversion_rate
 FROM total_users
 ORDER BY plan;
+
+-- feature adoption funnel
+
+CREATE OR REPLACE VIEW saas_product.feature_funnel AS
+SELECT
+    COUNT(DISTINCT CASE WHEN event_type = 'signup' THEN user_id END) AS step1_signup,
+    COUNT(DISTINCT CASE WHEN event_type = 'trial_start' THEN user_id END) AS step2_trial,
+    COUNT(DISTINCT CASE WHEN event_type = 'paid' THEN user_id END) AS step3_paid,
+    COUNT(DISTINCT CASE WHEN event_type = 'upgrade' THEN user_id END) AS step4_upgrade
+FROM saas_product.silver_events;
