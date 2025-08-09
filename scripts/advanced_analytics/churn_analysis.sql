@@ -31,3 +31,23 @@ SELECT
     COUNT(*) AS total_churned_users
 FROM saas_product.dim_subscriptions
 WHERE churn_date IS NOT NULL AND churn_date != '' AND churn_date != 'n/a';
+
+-- 🔹 churn reasons (synthetic)
+
+CREATE OR REPLACE VIEW saas_product.churn_reasons_synthetic AS
+WITH last_event AS (
+    SELECT
+        s.user_id,
+        MAX(e.event_date) AS last_event_date,
+        MAX(e.event_type) AS last_event_type
+    FROM saas_product.silver_subscriptions s
+    LEFT JOIN saas_product.silver_events e USING (user_id)
+    WHERE s.churn_date IS NOT NULL
+    GROUP BY s.user_id
+)
+SELECT
+    last_event_type,
+    COUNT(*) AS churned_users
+FROM last_event
+GROUP BY last_event_type
+ORDER BY churned_users DESC;
