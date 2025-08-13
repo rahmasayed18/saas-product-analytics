@@ -35,31 +35,35 @@ Top Event Feature: Feature B — engaged by 93,024% of active users (likely high
 
 ---
 
-###🔍 Key Insights
+## 🔍 Key Insights
 
 1. Customer Acquisition
-Monthly signups peaked in Jan and Mar 2022.
+   
+   - Monthly signups peaked in Jan and Mar 2022.
 
-Top plan at signup: Free (48 users).
+   - Top plan at signup: Free (48 users).
 
-Top country: Canada; lowest: India.
+   - Top country: Canada; lowest: India.
 
 2. Retention & Churn
-Current monthly churn: 26% (June 2022), compared to SaaS benchmarks of ~5–7%.
+   
+   - Current monthly churn: 26% (June 2022), compared to SaaS benchmarks of ~5–7%.
 
 3. Revenue & Monetization
-MRR fluctuated — highest in Feb 2022 ($520) and lowest in Apr 2022.
 
-ARPU highest in the Pro plan.
-
-Revenue distribution: Canada leads with 37.58%, lowest is UK with 17.45%.
+   - MRR fluctuated — highest in Feb 2022 ($520) and lowest in Apr 2022.
+    
+   - ARPU is highest in the Pro plan.
+    
+   - Revenue distribution: Canada leads with 37.58%, lowest is UK with 17.45%.
 
 4. Engagement & Product Usage
-Monthly active users were stable in the first three months (6%, 7%, 9%).
-
-These same months saw the highest MRR, showing a correlation between MAU stability and revenue peaks.
-
-In month four, MAU dropped to 4%, which coincided with MRR falling from $440 to $130.
+   
+   - Monthly active users were stable in the first three months (6%, 7%, 9%).
+    
+   - These same months saw the highest MRR, showing a correlation between MAU stability and revenue peaks.
+    
+   - In month four, MAU dropped to 4%, which coincided with MRR falling from $440 to $130.
 
 ---
 
