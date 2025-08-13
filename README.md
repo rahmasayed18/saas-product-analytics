@@ -1,49 +1,116 @@
-# SaaS Product Analytics Project
+## 📊 SaaS Product Analytics — Executive Summary & Insights
 
-📊 Project Overview
-This project analyzes a SaaS product dataset to uncover user behavior, revenue patterns, and plan profitability. The goal was to develop a comprehensive understanding of how users interact with the platform over time and how that translates into business outcomes, such as churn, lifetime value, and monthly recurring revenue.
+Executive Summary
+This analysis explores user behavior, plan performance, and market distribution for the SaaS product over the period covered in the dataset. The goal was to identify acquisition trends, retention drivers, and monetization opportunities.
 
-The dataset contains user subscription events, countries, signup dates, and product activity logs.
+Key Highlights
 
-## 📌 Objectives
+Total Users: 100
 
-- Understand subscription trends by plan and geography
-- Track feature usage and engagement by user segment
-- Identify churn patterns and customer lifetime
-- Measure key SaaS metrics: MRR, MAU, churn rate, retention
+Active Subscriptions: 74 (74% of total — 36 Free, 27 Basic, 11 Pro)
+
+Top Acquisition Month: Jan 2022 — 31 signups
+
+Top Plan: Free — 48 signups
+
+Top Country: Canada — 29% of signups
+
+Lowest Country: India
+
+Lowest MRR: $10 | Highest MRR: $25
+
+Top Event Feature: Feature B — engaged by 93,024% of active users (likely high due to repeated events)
 
 ---
-## 📐 SaaS Metrics Glossary
-- **MRR (Monthly Recurring Revenue)**: Predictable subscription income per month.
-- **ARPU (Average Revenue Per User)**: Revenue per active subscriber.
-- **Churn Rate**: % of users who cancel subscriptions.
+
+## 📈 KPI Summary
+
+
+1. Total Users	100
+2. Active Subs	74 (74%)
+3. Free Plan Active Users	36
+4. Basic Plan Active Users	27
+5. Pro Plan Active Users	11
+6. Top Acquisition Month	Jan 2022 (31 signups),Top Country	Canada (29%), Lowest Country	India
 
 ---
 
-🎯 Business Questions Answered
-What is the monthly trend in revenue and active users?
+###🔍 Key Insights
 
-Which plans contribute most to revenue and retention?
+1. Customer Acquisition
+Monthly signups peaked in Jan and Mar 2022.
 
-What is the distribution of users across countries and plans?
+Top plan at signup: Free (48 users).
 
-Which users can be considered high-value (VIP) or low-engagement?
+Top country: Canada; lowest: India.
 
-What is the churn rate and lifetime value of users by plan?
+2. Retention & Churn
+Current monthly churn: 26% (June 2022), compared to SaaS benchmarks of ~5–7%.
+
+3. Revenue & Monetization
+MRR fluctuated — highest in Feb 2022 ($520) and lowest in Apr 2022.
+
+ARPU highest in the Pro plan.
+
+Revenue distribution: Canada leads with 37.58%, lowest is UK with 17.45%.
+
+4. Engagement & Product Usage
+Monthly active users were stable in the first three months (6%, 7%, 9%).
+
+These same months saw the highest MRR, showing a correlation between MAU stability and revenue peaks.
+
+In month four, MAU dropped to 4%, which coincided with MRR falling from $440 to $130.
+
+---
+
+## 💡 Strategic Recommendations
+
+1. Boost high-value plan adoption
+
+2. Highlight Pro features in onboarding emails.
+
+3. Offer upgrade discounts in the first 30 days.
+
+4. Double down on peak acquisition month strategies
+
+5. Replicate successful Jan/Mar campaigns in slower periods.
+
+6. Address early churn
+
+7. Focus retention efforts within the first 90 days.
+
+8. Use personalized reactivation campaigns.
+
+9. Correlate engagement to revenue
+
+10. Explore how sustained MAU in early months drives MRR stability.
+
+---
+
+## 🧠 What I Did
+
+- Cleaned and transformed raw event logs and subscription records into structured tables (silver_events, dim_subscriptions, etc.).
+
+- Built multiple SQL views to analyze revenue trends, plan performance, and retention.
+
+- Normalized date formats and created a fiscal calendar logic.
+
+- Designed layered reports, including plan_report_saas, plan_summary_report, and user_value_segmentation.
 
 ---
 
 ## 🗃️ Dataset
 
-- **Source**: [SaaS Product Dashboard Dataset – Kaggle](https://www.kaggle.com/datasets/philbertchan/saas-product-dashboard-mau-feature-usage-mrr)
-- **Author**: [Philbert Chan](https://www.kaggle.com/philbertchan)
-- **License**: [CC0 1.0 Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/)
+Source: [SaaS Product Dashboard Dataset – Kaggle](https://www.kaggle.com/datasets/philbertchan/saas-product-dashboard-mau-feature-usage-mrr)
 
-✅ You are free to use, modify, and redistribute this dataset (even commercially) without permission.
+Author:  [Philbert Chan](https://www.kaggle.com/philbertchan)
+
+License:  [CC0 1.0 Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/)
 
 ---
 
 ## 🏗️ Project Structure
+
 ```
 ├── data/ # Cleaned dataset (source available under CC0)
 ├── sql/ # SQL queries and views
@@ -53,39 +120,25 @@ What is the churn rate and lifetime value of users by plan?
 ├── .gitignore # Ignore rules for Git
 └── LICENSE # MIT License for this project
 ```
+
 ---
+
 
 ## 📊 Reports & Views
 
-- `docs/01_vw_plan_summary.sql`: Plan-level metrics (ARPU, churn).
-- `docs/02_vw_country_revenue_churn.sql`: Revenue and churn by country.
-- `docs/03_vw_event_trend_monthly.sql`: Event volumes and user counts monthly.
-- `docs/04_vw_plan_distribution.sql`: User & revenue share by plan.
-- `docs/05_customer_summary_report.sql`: User-level segmentation & spend.
-- `docs/06_plan_report_saas.sql`: Plan performance, ARPU, engagement.
-- `docs/` :  [Executive Summary & Recommendations](docs/executive_summary.md)
+`docs/01_vw_plan_summary.sql`: Plan-level metrics (ARPU, churn).
 
+`docs/02_vw_country_revenue_churn.sql`: Revenue and churn by country.
 
----
-🧠 What I Did
-Cleaned and transformed raw event logs and subscription records into structured tables (silver_events, dim_subscriptions, etc.)
+`docs/03_vw_event_trend_monthly.sql`: Event volumes and user counts monthly.
 
-Built multiple SQL views to analyze revenue trends, plan performance, and retention.
+`docs/04_vw_plan_distribution.sql`: User & revenue share by plan.
 
-Normalized date formats and created a fiscal calendar logic.
+`docs/05_customer_summary_report.sql`: User-level segmentation & spend.
 
-Designed layered reports, including plan_report_saas, plan_summary_report, and user_value_segmentation.
+`docs/06_plan_report_saas.sql`: Plan performance, ARPU, engagement.
 
-
----
-
-💡 Key Insights
-
-✔️ Pro Plans = 50.3% of revenue, only 15% of users.
-✔️ Canada = high revenue & high churn → growth opportunity?
-✔️ Free Plan = most events → strong top-of-funnel.
-✔️ Top 10% users = 16% of events → power users drive product usage.
-
+`docs/` :   [Executive Summary & Recommendations](docs/executive_summary.md)
 
 ---
 
@@ -96,7 +149,7 @@ Designed layered reports, including plan_report_saas, plan_summary_report, and u
 - Data Cleaning & Transformation (SQL Views, CTEs)
 
 ---
-
+  
 ## 🙌 Acknowledgment
 
 - Dataset by [Philbert Chan](https://www.kaggle.com/philbertchan)  
