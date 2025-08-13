@@ -74,6 +74,18 @@ The goal was to identify acquisition trends, retention drivers, and monetization
 
 ---
 
+## ⚠️ Caveats & Limitations
+
+- **Short Time Range:** The dataset covers a limited number of months, making it hard to capture long-term seasonality or trends.
+- **Partial Churn Insight:** Churn rates are calculated from available data but may not reflect true behavior if cancellations weren’t logged consistently.
+- **MRR Variability:** Monthly recurring revenue is sensitive to small user count changes due to the relatively small sample size.
+- **Engagement Data Gaps:** Not all users have complete event logs, which could skew MAU and feature usage metrics.
+- **Plan Definition Ambiguity:** “Free,” “Basic,” and “Pro” plan benefits are assumed; no feature mapping was included in the dataset.
+- **Country Representation:** Some countries have very low sample sizes (e.g., India, UK), making percentage comparisons less reliable.
+- **Feature Usage Inflation:** Extremely high engagement percentage for Feature B likely reflects repeated event logging rather than unique user interaction.
+
+---
+
 ## 🧠 What I Did
 
 - Cleaned and transformed raw event logs and subscription records into structured tables (`silver_events`, `dim_subscriptions`, etc.).
